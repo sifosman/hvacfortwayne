@@ -190,7 +190,7 @@ export default function Home() {
               </div>
             </div>
             <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl bg-slate-200">
-              <Image src="/images/ac.jpg" alt="AC Unit Repair" fill className="object-cover" />
+              <Image src="/images/ac.png" alt="AC Unit Repair" fill className="object-cover" />
             </div>
           </div>
         </section>
@@ -204,7 +204,7 @@ export default function Home() {
                   title: "AC Repair",
                   desc: "When the humidity becomes 'thick and sticky,' your AC is your only refuge. We fix compressors, leaks, and electrical issues.",
                   icon: "❄️",
-                  image: "/images/ac.jpg"
+                  image: "/images/ac.png"
                 },
                 {
                   title: "AC Maintenance",
