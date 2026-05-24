@@ -29,10 +29,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "Do you offer furnace repair in Fort Wayne during winter?",
+      "name": "How can I lower my AC bill during Fort Wayne's humid summers?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, we are 24/7 furnace specialists. Indiana winters are unforgiving, and we ensure no family stays in the cold. We service all major brands and carry most common replacement parts on our vans."
+        "text": "Regular maintenance is key. Cleaning your outdoor condenser unit and replacing filters monthly can improve efficiency by 15%. We also recommend a professional tune-up to ensure your refrigerant levels are optimal for the heat."
       }
     }
   ]
@@ -207,9 +207,9 @@ export default function Home() {
                   image: "/images/ac.jpg"
                 },
                 {
-                  title: "Furnace Service",
-                  desc: "Indiana winters don't play. We handle heat exchanger inspections, igniter replacements, and total system restorations.",
-                  icon: "🔥",
+                  title: "AC Maintenance",
+                  desc: "Don't let the Fort Wayne humidity catch you off guard. Our multi-point inspections ensure your AC runs efficiently all summer long.",
+                  icon: "⚡",
                   image: "/images/furnace.jpg"
                 },
                 {
