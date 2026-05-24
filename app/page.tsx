@@ -137,7 +137,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
               <div className="inline-block bg-red-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-3 py-1 mb-6 rounded">
-                24/7 Dispatch in Allen County
+                Speedy Dispatch in Allen County
               </div>
               <h1 className="text-5xl md:text-7xl font-black leading-[0.9] mb-6 tracking-tighter uppercase text-slate-900">
                 Fort Wayne <br/>
