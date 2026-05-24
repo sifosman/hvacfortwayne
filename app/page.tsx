@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-const PHONE = "(260) 440-4444";
-const PHONE_HREF = "tel:+12604404444";
-const WHATSAPP_HREF = "https://wa.me/12604404444?text=Hi%2C%20I%20need%20HVAC%20repair%20in%20Fort%20Wayne";
+const PHONE = "(260) 786-9284";
+const PHONE_HREF = "tel:+12607869284";
+const WHATSAPP_HREF = "https://wa.me/27658475289?text=Hi%2C%20I%20need%20HVAC%20repair%20in%20Fort%20Wayne";
 
 const faqSchema = {
   "@context": "https://schema.org",

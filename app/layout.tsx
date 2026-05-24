@@ -28,7 +28,7 @@ const localBusinessSchema = {
   description:
     "Professional HVAC repair, furnace service, and air conditioning solutions in Fort Wayne, IN and surrounding Allen County areas.",
   url: "https://hvacrepairfortwayne.com",
-  telephone: "+12604404444",
+  telephone: "+12607869284",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Fort Wayne",
