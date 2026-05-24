@@ -217,7 +217,7 @@ export default function Home() {
                   title: "Air Quality",
                   desc: "Combat Fort Wayne allergens and pollutants with high-grade filtration and humidity control systems.",
                   icon: "💨",
-                  image: "/images/tech.jpg"
+                  image: "/images/air-quality.jpg"
                 }
               ].map((s) => (
                 <div key={s.title} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">
