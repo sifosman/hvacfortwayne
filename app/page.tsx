@@ -16,7 +16,7 @@ const faqSchema = {
       "name": "How quickly can you handle an HVAC repair in Fort Wayne?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We prioritize emergency calls. During the peak summer humidity or extreme winter freezes, we aim to have a technician at your Fort Wayne home (from Aboite to Waynedale) within 2-4 hours."
+        "text": "We prioritize urgent calls. During the peak summer humidity or extreme winter freezes, we aim to have a technician at your Fort Wayne home (from Aboite to Waynedale) within 2-4 hours."
       }
     },
     {
@@ -82,7 +82,7 @@ export default function Home() {
         type="submit"
         className="bg-red-600 text-white font-bold py-3 rounded-lg hover:bg-red-700 transition-colors shadow-lg shadow-red-200"
       >
-        Request Immediate Service
+        Request Service Now
       </button>
     </form>
   );
@@ -98,7 +98,7 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-3">Request Received!</h3>
-            <p className="text-gray-600 mb-6">We've received your request and will call you within 15-30 minutes for emergency service.</p>
+            <p className="text-gray-600 mb-6">We've received your request and will call you within 15-30 minutes.</p>
             <button
               onClick={() => setShowThankYou(false)}
               className="bg-red-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-red-700 transition-colors"
@@ -137,7 +137,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
               <div className="inline-block bg-red-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-3 py-1 mb-6 rounded">
-                24/7 Emergency Dispatch in Allen County
+                24/7 Dispatch in Allen County
               </div>
               <h1 className="text-5xl md:text-7xl font-black leading-[0.9] mb-6 tracking-tighter uppercase text-slate-900">
                 Fort Wayne <br/>
@@ -157,22 +157,12 @@ export default function Home() {
               <div className="bg-slate-900 p-8 rounded-2xl shadow-2xl">
                 <h2 className="text-white text-xl font-bold mb-6 flex items-center gap-2">
                   <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                  Get Emergency Service Now
+                  Get Service Now
                 </h2>
                 <ContactForm />
                 <p className="text-slate-400 text-xs mt-4 text-center">
                   Average response time in Fort Wayne: 45 Minutes
                 </p>
-              </div>
-              <div className="hidden lg:block absolute -bottom-12 -right-12 w-48 h-48 bg-white p-2 rounded-2xl shadow-xl transform rotate-3">
-                <div className="relative w-full h-full rounded-xl overflow-hidden bg-slate-200">
-                  <Image 
-                    src="/images/tech.jpg" 
-                    alt="Fort Wayne HVAC Technician" 
-                    fill 
-                    className="object-cover"
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -302,7 +292,7 @@ export default function Home() {
           <div>
             <p className="text-white font-bold mb-2 uppercase tracking-widest text-lg">Fort Wayne HVAC Repair</p>
             <p>Allen County, Indiana</p>
-            <p className="mt-2 text-slate-400">Available 24/7 for Emergency Services</p>
+            <p className="mt-2 text-slate-400">Available 24/7</p>
           </div>
           <div className="md:text-right">
             <p>&copy; {new Date().getFullYear()} HVAC Repair Fort Wayne. All rights reserved.</p>
