@@ -5,7 +5,42 @@ import Image from "next/image";
 
 const PHONE = "(260) 786-9284";
 const PHONE_HREF = "tel:+12607869284";
-const WHATSAPP_HREF = "https://wa.me/27658475289?text=Hi%2C%20I%20need%20HVAC%20repair%20in%20Fort%20Wayne";
+const WHATSAPP_HREF = "https://wa.me/27658475289?text=Hi%2C%20I%20need%20AC%20repair%20in%20Fort%20Wayne";
+
+const acRepairSchema = {
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "AC Repair Fort Wayne",
+  "description": "Professional AC repair services in Fort Wayne, Indiana. Same-day service for air conditioning breakdowns, refrigerant leaks, frozen coils, and more. Serving Allen County.",
+  "url": "https://hvacrepairfortwayne.com/ac-repair",
+  "telephone": PHONE,
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Fort Wayne",
+      "additionalProperty": {
+        "@type": "PropertyValue",
+        "name": "County",
+        "value": "Allen County"
+      }
+    }
+  ],
+  "serviceType": "Air Conditioning Repair",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "AC Repair",
+      "description": "Expert air conditioning repair for residential homes in Fort Wayne. We fix compressors, capacitors, refrigerant leaks, frozen coils, and electrical issues."
+    }
+  }
+};
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -13,32 +48,40 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How quickly can you handle an HVAC repair in Fort Wayne?",
+      "name": "How do I know if my AC needs repair in Fort Wayne?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We prioritize urgent calls. During the peak summer humidity or extreme winter freezes, we aim to have a technician at your Fort Wayne home (from Aboite to Waynedale) within 2-4 hours."
+        "text": "Common signs include warm air blowing from vents, weak airflow, unusual noises like grinding or squealing, frozen refrigerant lines, water pooling around the unit, and a sudden spike in your electric bill. The high humidity in Fort Wayne (often 70-90% in July and August) makes these problems worse and harder to ignore."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is my AC running but not cooling my Fort Wayne home?",
+      "name": "Why does my AC freeze up in Fort Wayne's humidity?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In Fort Wayne, the heavy summer humidity often causes coils to freeze or drainage lines to clog with sludge. If you're in an older neighborhood like Forest Park, your ductwork might also be struggling with the pressure of modern high-efficiency units."
+        "text": "Fort Wayne's summer humidity creates the perfect conditions for AC coil freeze-ups. When humid air passes over cold evaporator coils, excess moisture condenses and freezes, forming a layer of ice that restricts airflow. This is often caused by dirty air filters, low refrigerant levels, or blocked condensate drain lines — all common issues in older homes across neighborhoods like Forest Park and West Central."
       }
     },
     {
       "@type": "Question",
-      "name": "How can I lower my AC bill during Fort Wayne's humid summers?",
+      "name": "How long does an AC repair take in Fort Wayne?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Regular maintenance is key. Cleaning your outdoor condenser unit and replacing filters monthly can improve efficiency by 15%. We also recommend a professional tune-up to ensure your refrigerant levels are optimal for the heat."
+        "text": "Most standard AC repairs in Fort Wayne take 1-3 hours from the time our technician arrives. Simple fixes like capacitor replacements or thermostat issues can be resolved in under an hour. Major repairs like compressor replacements may require up to a full day. We stock common parts for the most popular brands (Carrier, Trane, Lennox, Rheem) so we can fix most issues in a single visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I repair or replace my old AC unit in Fort Wayne?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your AC unit is over 12-15 years old and needs a major repair (compressor or coil replacement), replacement is usually more cost-effective. Newer units handle Indiana humidity much better and can lower your electric bill by 20-40%. However, if the repair is minor and your system is well-maintained, repairing is a smart short-term solution. We give honest advice — no pressure to replace if a simple fix will get you through the summer."
       }
     }
   ]
 };
 
-export default function Home() {
+export default function ACRepair() {
   const [showThankYou, setShowThankYou] = useState(false);
 
   useEffect(() => {
@@ -55,9 +98,9 @@ export default function Home() {
       method="POST"
       className="flex flex-col gap-4"
     >
-      <input type="hidden" name="_subject" value="New HVAC Quote Request - Fort Wayne" />
+      <input type="hidden" name="_subject" value="New AC Repair Request - Fort Wayne" />
       <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_next" value="https://hvacrepairfortwayne.com/?sent=1" />
+      <input type="hidden" name="_next" value="https://hvacrepairfortwayne.com/ac-repair?sent=1" />
       <input
         type="text"
         name="name"
@@ -74,7 +117,7 @@ export default function Home() {
       />
       <textarea
         name="message"
-        placeholder="Describe your HVAC issue (e.g. AC not cooling, furnace making noise, unit frozen)"
+        placeholder="Describe your AC issue (e.g. AC not cooling, unit frozen, weird noises, water leaking)"
         rows={4}
         className="rounded-lg px-4 py-3 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-500 resize-none border border-gray-200"
       />
@@ -82,7 +125,7 @@ export default function Home() {
         type="submit"
         className="bg-red-600 text-white font-bold py-3 rounded-lg hover:bg-red-700 transition-colors shadow-lg shadow-red-200"
       >
-        Request Service Now
+        Request AC Repair Now
       </button>
     </form>
   );
@@ -97,8 +140,8 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">Request Received!</h3>
-            <p className="text-gray-600 mb-6">We've received your request and will call you within 15-30 minutes.</p>
+            <h3 className="text-2xl font-bold text-gray-900 mb-3">AC Repair Request Received!</h3>
+            <p className="text-gray-600 mb-6">We've received your AC repair request and will call you within 15-30 minutes.</p>
             <button
               onClick={() => setShowThankYou(false)}
               className="bg-red-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-red-700 transition-colors"
@@ -110,8 +153,20 @@ export default function Home() {
       )}
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(acRepairSchema) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
+      {/* ── META / HEAD ── */}
+      <head>
+        <title>AC Repair Fort Wayne | Same-Day Air Conditioning Service | HVAC Repair</title>
+        <meta name="description" content="Professional AC repair in Fort Wayne, IN. Expert diagnosis and repair for all AC brands. Same-day service for broken air conditioners, frozen coils, refrigerant leaks, and more. Call (260) 786-9284." />
+        <meta name="keywords" content="AC repair Fort Wayne, air conditioning repair Fort Wayne, AC service Fort Wayne, HVAC repair Fort Wayne Indiana, emergency AC repair Fort Wayne" />
+        <link rel="canonical" href="https://hvacrepairfortwayne.com/ac-repair" />
+      </head>
 
       {/* ── NAV ── */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
@@ -119,7 +174,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <div className="flex flex-col">
               <span className="font-black text-slate-900 leading-none text-xl uppercase tracking-tighter">Fort Wayne</span>
-              <span className="font-bold text-red-600 leading-none text-sm uppercase tracking-[0.2em]">HVAC REPAIR</span>
+              <span className="font-bold text-red-600 leading-none text-sm uppercase tracking-[0.2em]">AC REPAIR</span>
             </div>
           </div>
           <a
@@ -137,27 +192,27 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
               <div className="inline-block bg-red-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-3 py-1 mb-6 rounded">
-                Speedy Dispatch in Allen County
+                Same-Day AC Dispatch in Allen County
               </div>
               <h1 className="text-5xl md:text-7xl font-black leading-[0.9] mb-6 tracking-tighter uppercase text-slate-900">
-                Fort Wayne <br/>
-                <span className="text-red-600 italic">HVAC Repair</span>
+                AC Repair <br/>
+                <span className="text-red-600 italic">Fort Wayne</span>
               </h1>
               <p className="text-lg text-slate-600 mb-10 max-w-lg font-medium leading-relaxed">
-                When the Indiana humidity hits or the lake-effect wind howls, you need a furnace and AC system that works. We provide same-day HVAC service across Fort Wayne.
+                When the Indiana humidity strikes and your AC quits, you need fast, reliable help. We provide same-day air conditioning repair across all of Fort Wayne — from Aboite to Waynedale.
               </p>
               <div className="hidden lg:grid grid-cols-2 gap-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
                 <div className="flex items-center gap-2">✅ Licensed & Insured</div>
                 <div className="flex items-center gap-2">⚡ Same Day Service</div>
                 <div className="flex items-center gap-2">📍 Locally Owned</div>
-                <div className="flex items-center gap-2">❄️ AC & Heating</div>
+                <div className="flex items-center gap-2">❄️ AC Specialists</div>
               </div>
             </div>
             <div className="relative">
               <div className="bg-slate-900 p-8 rounded-2xl shadow-2xl">
                 <h2 className="text-white text-xl font-bold mb-6 flex items-center gap-2">
                   <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                  Get Service Now
+                  Get AC Repair Now
                 </h2>
                 <ContactForm />
                 <p className="text-slate-400 text-xs mt-4 text-center">
@@ -168,58 +223,64 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── NON-COMMODITY: LOCAL CHALLENGES ── */}
+        {/* ── NON-COMMODITY: LOCAL AC CHALLENGES ── */}
         <section className="py-24 px-4 bg-white">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-red-600 font-black uppercase tracking-[0.3em] text-[10px]">The Fort Wayne Difference</span>
+              <span className="text-red-600 font-black uppercase tracking-[0.3em] text-[10px]">The Fort Wayne AC Problem</span>
               <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 tracking-tighter uppercase leading-tight">
-                Why Indiana Weather Destroys <br/>
-                <span className="text-red-600 italic">Cheap HVAC Systems</span>
+                Indiana Humidity Is Brutal <br/>
+                <span className="text-red-600 italic">On Your AC System</span>
               </h2>
               <div className="mt-8 space-y-6 text-slate-600 font-medium leading-relaxed">
                 <p>
-                  Fort Wayne residents know that our weather is "bipolar." One day it's 90 degrees with 80% humidity from the <span className="text-slate-900 font-bold">Great Lakes</span>, and the next, a cold front drops it by 40 degrees. This rapid cycling puts massive strain on AC capacitors and furnace igniters.
+                  Fort Wayne sits in the <span className="text-slate-900 font-bold">Maumee River Valley</span>, which acts like a bowl for humidity rolling in from Lake Michigan and Lake Erie. During July and August, humidity levels routinely hit <span className="text-slate-900 font-bold">80-90%</span>, forcing your AC system to work overtime just to keep you comfortable.
                 </p>
                 <p>
-                  In neighborhoods like <span className="text-slate-900 font-bold">Aboite</span>, <span className="text-slate-900 font-bold">Forest Park</span>, and <span className="text-slate-900 font-bold">Pine Valley</span>, we often see units that haven't been tuned for our specific seasonal shifts. Dust and debris from local agriculture often clog condenser fins, causing units to work twice as hard for half the cooling.
+                  This relentless moisture causes three major problems: <span className="text-slate-900 font-bold">frozen evaporator coils</span> from condensate buildup, <span className="text-slate-900 font-bold">clogged drain lines</span> that flood your basement or crawlspace, and <span className="text-slate-900 font-bold">overworked compressors</span> that fail at the worst possible time — during a heatwave.
+                </p>
+                <p>
+                  In older Fort Wayne neighborhoods like <span className="text-slate-900 font-bold">West Central</span>, <span className="text-slate-900 font-bold">North Highlands</span>, and <span className="text-slate-900 font-bold">Forest Park</span>, homes have undersized ductwork and aging electrical panels that can't handle modern high-efficiency AC units. We see failed capacitors, burned-out contactors, and tripped breakers constantly during the first 90-degree day of the season.
                 </p>
                 <div className="p-6 bg-red-50 rounded-xl border-l-4 border-red-600 shadow-sm italic text-sm text-slate-800">
-                  "The biggest mistake we see in Allen County is homeowners ignoring a 'small' noise in June. That noise is usually a sign of a failing blower motor that will officially quit during the hottest week of August. Don't wait for a total breakdown."
+                  "The number one call we get every June is 'My AC was working fine yesterday, and now it's blowing warm air.' Nine times out of ten, it's a bad capacitor or a frozen coil caused by our Indiana humidity. We carry those parts on the truck and can have you cooled down the same day."
                 </div>
               </div>
             </div>
             <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl bg-slate-200">
-              <Image src="/images/ac.png" alt="AC Unit Repair" fill className="object-cover" />
+              <Image src="/images/ac.png" alt="AC Unit Repair Fort Wayne" fill className="object-cover" />
             </div>
           </div>
         </section>
 
-        {/* ── SERVICES ── */}
+        {/* ── AC REPAIR SERVICES ── */}
         <section className="py-24 px-4 bg-slate-50 border-y border-gray-200">
           <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-14">
+              <span className="text-red-600 font-black uppercase tracking-[0.3em] text-[10px]">What We Fix</span>
+              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 tracking-tighter uppercase leading-tight">
+                AC Repair Services in <span className="text-red-600 italic">Fort Wayne</span>
+              </h2>
+            </div>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  title: "AC Repair",
-                  desc: "When the humidity becomes 'thick and sticky,' your AC is your only refuge. We fix compressors, leaks, and electrical issues.",
+                  title: "Emergency AC Repair",
+                  desc: "When your AC dies on a 95-degree day with 80% humidity, you can't wait. We offer same-day emergency service for complete breakdowns, electrical failures, and compressor issues.",
+                  icon: "🚨",
+                  image: "/images/ac.png"
+                },
+                {
+                  title: "AC Tune-Up & Maintenance",
+                  desc: "Prevent summer breakdowns with our comprehensive AC tune-up. We clean coils, check refrigerant levels, inspect capacitors, test airflow, and clear drain lines before the heat hits.",
+                  icon: "🔧",
+                  image: "/images/tech.jpg"
+                },
+                {
+                  title: "Ductless & Window Units",
+                  desc: "Many Fort Wayne homes rely on ductless mini-splits or window units for older additions and sunrooms. We service, repair, and install all types of ductless AC systems.",
                   icon: "❄️",
-                  image: "/images/ac.png",
-                  href: "/ac-repair"
-                },
-                {
-                  title: "AC Maintenance",
-                  desc: "Don't let the Fort Wayne humidity catch you off guard. Our multi-point inspections ensure your AC runs efficiently all summer long.",
-                  icon: "⚡",
-                  image: "/images/furnace.jpg",
-                  href: "/hvac-maintenance"
-                },
-                {
-                  title: "Air Quality",
-                  desc: "Combat Fort Wayne allergens and pollutants with high-grade filtration and humidity control systems.",
-                  icon: "💨",
-                  image: "/images/air-quality.jpg",
-                  href: "/hvac-maintenance"
+                  image: "/images/furnace.jpg"
                 }
               ].map((s) => (
                 <div key={s.title} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">
@@ -230,7 +291,7 @@ export default function Home() {
                     <div className="text-4xl mb-4">{s.icon}</div>
                     <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tight">{s.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed mb-6 font-medium">{s.desc}</p>
-                    <a href={s.href} className="text-[10px] font-black uppercase tracking-widest text-red-600 hover:text-slate-900 transition-colors">
+                    <a href="/ac-repair" className="text-[10px] font-black uppercase tracking-widest text-red-600 hover:text-slate-900 transition-colors">
                       Request Quote →
                     </a>
                   </div>
@@ -243,7 +304,7 @@ export default function Home() {
         {/* ── AREAS ── */}
         <section className="py-20 px-4 bg-white">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 uppercase tracking-widest">Serving Allen County</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-8 uppercase tracking-widest">AC Repair Coverage — Allen County</h2>
             <div className="flex flex-wrap justify-center gap-3">
               {[
                 "Aboite", "Waynedale", "Pine Valley", "Arlington Park",
@@ -261,7 +322,7 @@ export default function Home() {
         {/* ── FAQ ── */}
         <section className="py-20 px-4 bg-slate-50">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-10 uppercase tracking-tighter">HVAC FAQ</h2>
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-10 uppercase tracking-tighter">AC Repair FAQ — Fort Wayne</h2>
             <div className="space-y-4">
               {faqSchema.mainEntity.map((q) => (
                 <details key={q.name} className="bg-white border border-gray-200 rounded-xl p-5 group cursor-pointer">
@@ -281,8 +342,8 @@ export default function Home() {
         {/* ── CTA ── */}
         <section className="py-24 px-4 bg-red-600 text-white text-center">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-4xl font-black uppercase mb-6 tracking-tight">Need Service Right Now?</h2>
-            <p className="text-xl mb-10 text-red-100">Don't wait for your system to fail completely. Call our dispatch center for same-day service.</p>
+            <h2 className="text-4xl font-black uppercase mb-6 tracking-tight">AC Quit On You?</h2>
+            <p className="text-xl mb-10 text-red-100">Don't sweat through the Fort Wayne humidity. Call our dispatch center for same-day AC repair.</p>
             <a href={PHONE_HREF} className="bg-white text-red-600 px-10 py-5 rounded-full text-xl font-black uppercase shadow-2xl hover:bg-slate-900 hover:text-white transition-all inline-block">
               📞 {PHONE}
             </a>
@@ -293,9 +354,9 @@ export default function Home() {
       <footer id="contact" className="bg-slate-900 text-slate-500 py-12 px-4 border-t border-slate-800">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center text-sm font-medium">
           <div>
-            <p className="text-white font-bold mb-2 uppercase tracking-widest text-lg">Fort Wayne HVAC Repair</p>
+            <p className="text-white font-bold mb-2 uppercase tracking-widest text-lg">Fort Wayne AC Repair</p>
             <p>Allen County, Indiana</p>
-            <p className="mt-2 text-slate-400">Available 24/7</p>
+            <p className="mt-2 text-slate-400">Available 24/7 for AC Emergencies</p>
           </div>
           <div className="md:text-right">
             <p>&copy; {new Date().getFullYear()} HVAC Repair Fort Wayne. All rights reserved.</p>

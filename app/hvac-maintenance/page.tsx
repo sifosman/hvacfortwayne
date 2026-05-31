@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const PHONE = "(260) 786-9284";
-const PHONE_HREF = "tel:+12607869284";
-const WHATSAPP_HREF = "https://wa.me/27658475289?text=Hi%2C%20I%20need%20HVAC%20repair%20in%20Fort%20Wayne";
+const PHONE_HREF = "tel:+126****9284";
+const WHATSAPP_HREF = "https://wa.me/27658475289?text=Hi%2C%20I%20need%20HVAC%20maintenance%20in%20Fort%20Wayne";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -13,32 +13,48 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How quickly can you handle an HVAC repair in Fort Wayne?",
+      "name": "How often should I schedule HVAC maintenance in Fort Wayne?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We prioritize urgent calls. During the peak summer humidity or extreme winter freezes, we aim to have a technician at your Fort Wayne home (from Aboite to Waynedale) within 2-4 hours."
+        "text": "We recommend professional HVAC maintenance twice a year — once in spring for your AC before the humid Indiana summer hits, and once in fall for your furnace before the lake-effect winter freezes arrive. This keeps your system running efficiently year-round."
       }
     },
     {
       "@type": "Question",
-      "name": "Why is my AC running but not cooling my Fort Wayne home?",
+      "name": "What is included in a preventative HVAC maintenance visit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In Fort Wayne, the heavy summer humidity often causes coils to freeze or drainage lines to clog with sludge. If you're in an older neighborhood like Forest Park, your ductwork might also be struggling with the pressure of modern high-efficiency units."
+        "text": "Our Fort Wayne technicians perform a full 21-point inspection: checking refrigerant levels, cleaning condenser coils, inspecting electrical connections, lubricating moving parts, testing thermostat calibration, inspecting ductwork for leaks, replacing air filters, checking gas pressure for furnaces, and ensuring your carbon monoxide detectors are working properly."
       }
     },
     {
       "@type": "Question",
-      "name": "How can I lower my AC bill during Fort Wayne's humid summers?",
+      "name": "Can HVAC maintenance help lower my energy bills in Fort Wayne?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Regular maintenance is key. Cleaning your outdoor condenser unit and replacing filters monthly can improve efficiency by 15%. We also recommend a professional tune-up to ensure your refrigerant levels are optimal for the heat."
+        "text": "Absolutely. A well-maintained HVAC system operates 15-25% more efficiently. In Fort Wayne's extreme weather — from 90°F humid summers to sub-zero winter wind chills — a maintained system uses less energy to keep your home comfortable, which directly lowers your monthly utility bills."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I skip HVAC maintenance in my Fort Wayne home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Skipping maintenance leads to dirty coils, clogged filters, worn belts, and overlooked refrigerant leaks. In Fort Wayne's climate, these small issues become expensive emergency repairs fast. Most system failures we see in Allen County could have been prevented with a simple spring or fall tune-up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer HVAC maintenance plans for Fort Wayne homeowners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Our VIP Maintenance Plan includes two tune-ups per year, priority scheduling, a 15% discount on repairs, and annual filter deliveries. It's the smartest investment a Fort Wayne homeowner can make to extend the life of their furnace and AC system."
       }
     }
   ]
 };
 
-export default function Home() {
+export default function HvacMaintenance() {
   const [showThankYou, setShowThankYou] = useState(false);
 
   useEffect(() => {
@@ -55,9 +71,9 @@ export default function Home() {
       method="POST"
       className="flex flex-col gap-4"
     >
-      <input type="hidden" name="_subject" value="New HVAC Quote Request - Fort Wayne" />
+      <input type="hidden" name="_subject" value="New HVAC Maintenance Request - Fort Wayne" />
       <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_next" value="https://hvacrepairfortwayne.com/?sent=1" />
+      <input type="hidden" name="_next" value="https://hvacrepairfortwayne.com/hvac-maintenance?sent=1" />
       <input
         type="text"
         name="name"
@@ -74,7 +90,7 @@ export default function Home() {
       />
       <textarea
         name="message"
-        placeholder="Describe your HVAC issue (e.g. AC not cooling, furnace making noise, unit frozen)"
+        placeholder="Tell us about your HVAC system — when was your last tune-up?"
         rows={4}
         className="rounded-lg px-4 py-3 bg-white text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-red-500 resize-none border border-gray-200"
       />
@@ -82,7 +98,7 @@ export default function Home() {
         type="submit"
         className="bg-red-600 text-white font-bold py-3 rounded-lg hover:bg-red-700 transition-colors shadow-lg shadow-red-200"
       >
-        Request Service Now
+        Schedule Maintenance
       </button>
     </form>
   );
@@ -98,7 +114,7 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-3">Request Received!</h3>
-            <p className="text-gray-600 mb-6">We've received your request and will call you within 15-30 minutes.</p>
+            <p className="text-gray-600 mb-6">We've received your maintenance request and will call you within 15-30 minutes to schedule your appointment.</p>
             <button
               onClick={() => setShowThankYou(false)}
               className="bg-red-600 text-white font-bold px-8 py-3 rounded-lg hover:bg-red-700 transition-colors"
@@ -108,20 +124,57 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* ── STRUCTURED DATA ── */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "HVAC Maintenance Fort Wayne",
+            description:
+              "Professional preventative HVAC maintenance services in Fort Wayne, IN. Spring AC tune-ups, fall furnace inspections, and year-round system care.",
+            provider: {
+              "@type": "HVACBusiness",
+              name: "HVAC Repair Fort Wayne",
+              url: "https://hvacrepairfortwayne.com",
+              telephone: "+126****9284",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Fort Wayne",
+                addressRegion: "IN",
+                addressCountry: "US",
+              },
+            },
+            areaServed: [
+              "Fort Wayne",
+              "Aboite",
+              "Waynedale",
+              "New Haven",
+              "Huntertown",
+              "Leo-Cedarville",
+              "Grabill",
+              "Monroeville",
+            ],
+            serviceType: "HVAC Maintenance",
+          }),
+        }}
       />
 
       {/* ── NAV ── */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <a href="/" className="flex items-center gap-3">
             <div className="flex flex-col">
               <span className="font-black text-slate-900 leading-none text-xl uppercase tracking-tighter">Fort Wayne</span>
               <span className="font-bold text-red-600 leading-none text-sm uppercase tracking-[0.2em]">HVAC REPAIR</span>
             </div>
-          </div>
+          </a>
           <a
             href={PHONE_HREF}
             className="bg-slate-900 text-white px-6 py-3 rounded-md text-sm font-black uppercase tracking-wider hover:bg-red-600 transition-all shadow-lg"
@@ -137,102 +190,139 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-left">
               <div className="inline-block bg-red-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-3 py-1 mb-6 rounded">
-                Speedy Dispatch in Allen County
+                Preventative Care in Allen County
               </div>
               <h1 className="text-5xl md:text-7xl font-black leading-[0.9] mb-6 tracking-tighter uppercase text-slate-900">
-                Fort Wayne <br/>
-                <span className="text-red-600 italic">HVAC Repair</span>
+                HVAC Maintenance <br/>
+                <span className="text-red-600 italic">Fort Wayne</span>
               </h1>
               <p className="text-lg text-slate-600 mb-10 max-w-lg font-medium leading-relaxed">
-                When the Indiana humidity hits or the lake-effect wind howls, you need a furnace and AC system that works. We provide same-day HVAC service across Fort Wayne.
+                Keep your furnace and AC running like new through Indiana's brutal seasons. Our certified technicians provide thorough preventative maintenance to extend the life of your system and prevent costly emergency breakdowns.
               </p>
               <div className="hidden lg:grid grid-cols-2 gap-4 text-xs font-bold text-slate-500 uppercase tracking-widest">
                 <div className="flex items-center gap-2">✅ Licensed & Insured</div>
                 <div className="flex items-center gap-2">⚡ Same Day Service</div>
                 <div className="flex items-center gap-2">📍 Locally Owned</div>
-                <div className="flex items-center gap-2">❄️ AC & Heating</div>
+                <div className="flex items-center gap-2">🔧 21-Point Inspection</div>
               </div>
             </div>
             <div className="relative">
               <div className="bg-slate-900 p-8 rounded-2xl shadow-2xl">
                 <h2 className="text-white text-xl font-bold mb-6 flex items-center gap-2">
                   <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
-                  Get Service Now
+                  Book a Tune-Up
                 </h2>
                 <ContactForm />
                 <p className="text-slate-400 text-xs mt-4 text-center">
-                  Average response time in Fort Wayne: 45 Minutes
+                  Available 7 days a week in Fort Wayne
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── NON-COMMODITY: LOCAL CHALLENGES ── */}
+        {/* ── WHY MAINTENANCE MATTERS ── */}
         <section className="py-24 px-4 bg-white">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-red-600 font-black uppercase tracking-[0.3em] text-[10px]">The Fort Wayne Difference</span>
+              <span className="text-red-600 font-black uppercase tracking-[0.3em] text-[10px]">Don't Wait for a Breakdown</span>
               <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 tracking-tighter uppercase leading-tight">
-                Why Indiana Weather Destroys <br/>
-                <span className="text-red-600 italic">Cheap HVAC Systems</span>
+                Preventative Maintenance <br/>
+                <span className="text-red-600 italic">Saves You Thousands</span>
               </h2>
               <div className="mt-8 space-y-6 text-slate-600 font-medium leading-relaxed">
                 <p>
-                  Fort Wayne residents know that our weather is "bipolar." One day it's 90 degrees with 80% humidity from the <span className="text-slate-900 font-bold">Great Lakes</span>, and the next, a cold front drops it by 40 degrees. This rapid cycling puts massive strain on AC capacitors and furnace igniters.
+                  Fort Wayne's weather doesn't give your HVAC system any breaks. One week it's 90°F with oppressive humidity rolling in from the Great Lakes, the next week you're scraping ice off your windshield. Your furnace and AC take a beating working through those extremes.
                 </p>
                 <p>
-                  In neighborhoods like <span className="text-slate-900 font-bold">Aboite</span>, <span className="text-slate-900 font-bold">Forest Park</span>, and <span className="text-slate-900 font-bold">Pine Valley</span>, we often see units that haven't been tuned for our specific seasonal shifts. Dust and debris from local agriculture often clog condenser fins, causing units to work twice as hard for half the cooling.
+                  <span className="text-slate-900 font-bold">Regular preventative maintenance</span> catches small problems before they become expensive emergencies. A dirty condenser coil, a loose electrical connection, or a worn blower belt won't show up on your radar — but our technicians spot them every time.
+                </p>
+                <p>
+                  Homeowners in <span className="text-slate-900 font-bold">Aboite</span>, <span className="text-slate-900 font-bold">Pine Valley</span>, and <span className="text-slate-900 font-bold">Waynedale</span> who skip tune-ups often face the consequences during peak season — when every HVAC company in Allen County is booked solid and wait times stretch to days.
                 </p>
                 <div className="p-6 bg-red-50 rounded-xl border-l-4 border-red-600 shadow-sm italic text-sm text-slate-800">
-                  "The biggest mistake we see in Allen County is homeowners ignoring a 'small' noise in June. That noise is usually a sign of a failing blower motor that will officially quit during the hottest week of August. Don't wait for a total breakdown."
+                  "We've seen units that could have lasted 15+ years fail at year 8 simply because nobody changed the filters or cleaned the coils. A $150 tune-up today saves you a $4,000 replacement tomorrow. It's that simple."
                 </div>
               </div>
             </div>
             <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl bg-slate-200">
-              <Image src="/images/ac.png" alt="AC Unit Repair" fill className="object-cover" />
+              <Image src="/images/tech.jpg" alt="HVAC Maintenance Technician" fill className="object-cover" />
             </div>
           </div>
         </section>
 
-        {/* ── SERVICES ── */}
+        {/* ── MAINTENANCE CHECKLIST ── */}
         <section className="py-24 px-4 bg-slate-50 border-y border-gray-200">
           <div className="max-w-6xl mx-auto">
+            <span className="text-red-600 font-black uppercase tracking-[0.3em] text-[10px] text-center block">Our Process</span>
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mt-4 mb-12 tracking-tighter uppercase leading-tight text-center">
+              21-Point <span className="text-red-600 italic">Maintenance Checklist</span>
+            </h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  title: "AC Repair",
-                  desc: "When the humidity becomes 'thick and sticky,' your AC is your only refuge. We fix compressors, leaks, and electrical issues.",
+                  title: "Spring AC Tune-Up",
+                  items: [
+                    "Inspect & clean condenser coils",
+                    "Check refrigerant levels & pressure",
+                    "Test capacitor & electrical components",
+                    "Clean condensate drain line",
+                    "Inspect ductwork for leaks",
+                    "Calibrate thermostat",
+                    "Replace air filters",
+                    "Lubricate blower motor & bearings"
+                  ],
                   icon: "❄️",
-                  image: "/images/ac.png",
-                  href: "/ac-repair"
+                  season: "Before Summer"
                 },
                 {
-                  title: "AC Maintenance",
-                  desc: "Don't let the Fort Wayne humidity catch you off guard. Our multi-point inspections ensure your AC runs efficiently all summer long.",
-                  icon: "⚡",
-                  image: "/images/furnace.jpg",
-                  href: "/hvac-maintenance"
+                  title: "Fall Furnace Inspection",
+                  items: [
+                    "Inspect heat exchanger for cracks",
+                    "Clean burner assembly & igniter",
+                    "Check gas pressure & connections",
+                    "Test carbon monoxide detectors",
+                    "Inspect flue pipe & ventilation",
+                    "Verify blower & limit switch operation",
+                    "Lubricate circulating fan motor",
+                    "Check pilot light & flame sensor"
+                  ],
+                  icon: "🔥",
+                  season: "Before Winter"
                 },
                 {
-                  title: "Air Quality",
-                  desc: "Combat Fort Wayne allergens and pollutants with high-grade filtration and humidity control systems.",
-                  icon: "💨",
-                  image: "/images/air-quality.jpg",
-                  href: "/hvac-maintenance"
+                  title: "Year-Round Benefits",
+                  items: [
+                    "Extended equipment lifespan",
+                    "Lower monthly energy bills",
+                    "Fewer emergency service calls",
+                    "Improved indoor air quality",
+                    "Maintained manufacturer warranty",
+                    "Priority scheduling for VIP members",
+                    "Peace of mind year-round",
+                    "15% discount on any repairs"
+                  ],
+                  icon: "✅",
+                  season: "All Year"
                 }
               ].map((s) => (
                 <div key={s.title} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">
-                  <div className="aspect-video relative transition-all duration-500 bg-slate-200">
-                    <Image src={s.image} alt={s.title} fill className="object-cover" />
+                  <div className="bg-slate-900 p-6 text-center">
+                    <div className="text-4xl mb-2">{s.icon}</div>
+                    <h3 className="text-xl font-bold text-white uppercase tracking-tight">{s.title}</h3>
+                    <span className="inline-block bg-red-600 text-white text-[9px] font-black uppercase tracking-wider px-3 py-1 mt-2 rounded">
+                      {s.season}
+                    </span>
                   </div>
                   <div className="p-8">
-                    <div className="text-4xl mb-4">{s.icon}</div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tight">{s.title}</h3>
-                    <p className="text-slate-500 text-sm leading-relaxed mb-6 font-medium">{s.desc}</p>
-                    <a href={s.href} className="text-[10px] font-black uppercase tracking-widest text-red-600 hover:text-slate-900 transition-colors">
-                      Request Quote →
-                    </a>
+                    <ul className="space-y-3">
+                      {s.items.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-sm text-slate-600 font-medium">
+                          <span className="text-red-600 mt-0.5 shrink-0">✓</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               ))}
@@ -240,10 +330,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── AREAS ── */}
+        {/* ── SERVICE AREAS ── */}
         <section className="py-20 px-4 bg-white">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 uppercase tracking-widest">Serving Allen County</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-8 uppercase tracking-widest">Serving All of Allen County</h2>
             <div className="flex flex-wrap justify-center gap-3">
               {[
                 "Aboite", "Waynedale", "Pine Valley", "Arlington Park",
@@ -261,7 +351,7 @@ export default function Home() {
         {/* ── FAQ ── */}
         <section className="py-20 px-4 bg-slate-50">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-10 uppercase tracking-tighter">HVAC FAQ</h2>
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-10 uppercase tracking-tighter">HVAC Maintenance FAQ</h2>
             <div className="space-y-4">
               {faqSchema.mainEntity.map((q) => (
                 <details key={q.name} className="bg-white border border-gray-200 rounded-xl p-5 group cursor-pointer">
@@ -281,8 +371,8 @@ export default function Home() {
         {/* ── CTA ── */}
         <section className="py-24 px-4 bg-red-600 text-white text-center">
           <div className="max-w-2xl mx-auto">
-            <h2 className="text-4xl font-black uppercase mb-6 tracking-tight">Need Service Right Now?</h2>
-            <p className="text-xl mb-10 text-red-100">Don't wait for your system to fail completely. Call our dispatch center for same-day service.</p>
+            <h2 className="text-4xl font-black uppercase mb-6 tracking-tight">Schedule Your Tune-Up Today</h2>
+            <p className="text-xl mb-10 text-red-100">Don't wait for a mid-winter breakdown or a summer AC failure. Call now to book your preventative maintenance appointment.</p>
             <a href={PHONE_HREF} className="bg-white text-red-600 px-10 py-5 rounded-full text-xl font-black uppercase shadow-2xl hover:bg-slate-900 hover:text-white transition-all inline-block">
               📞 {PHONE}
             </a>
@@ -299,7 +389,11 @@ export default function Home() {
           </div>
           <div className="md:text-right">
             <p>&copy; {new Date().getFullYear()} HVAC Repair Fort Wayne. All rights reserved.</p>
-            <p className="mt-1">Built with 🛠️ for Fort Wayne homeowners.</p>
+            <p className="mt-1">
+              <a href="/" className="hover:text-white transition-colors">Home</a>
+              <span className="mx-2">|</span>
+              <a href="/hvac-maintenance" className="text-white hover:text-red-400 transition-colors">HVAC Maintenance</a>
+            </p>
           </div>
         </div>
       </footer>
