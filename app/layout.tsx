@@ -20,6 +20,10 @@ export const metadata: Metadata = {
     url: "https://hvacrepairfortwayne.com/",
     siteName: "HVAC Repair Fort Wayne",
     type: "website",
+    images: [{ url: "https://hvacrepairfortwayne.com/images/tech.jpg", width: 1200, height: 800 }],
+  },
+  other: {
+    "google-site-verification": "YOUR_VERIFICATION_CODE", // TODO: Replace with real GSC code
   },
 };
 

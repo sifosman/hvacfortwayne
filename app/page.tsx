@@ -5,7 +5,6 @@ import Image from "next/image";
 
 const PHONE = "(260) 786-9284";
 const PHONE_HREF = "tel:+12607869284";
-const WHATSAPP_HREF = "https://wa.me/27658475289?text=Hi%2C%20I%20need%20HVAC%20repair%20in%20Fort%20Wayne";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -186,19 +185,22 @@ export default function Home() {
                   title: "AC Repair",
                   desc: "When the humidity becomes 'thick and sticky,' your AC is your only refuge. We fix compressors, leaks, and electrical issues.",
                   icon: "❄️",
-                  image: "/images/ac.png"
+                  image: "/images/ac.png",
+                  href: "/ac-repair"
                 },
                 {
                   title: "AC Maintenance",
                   desc: "Don't let the Fort Wayne humidity catch you off guard. Our multi-point inspections ensure your AC runs efficiently all summer long.",
                   icon: "⚡",
-                  image: "/images/furnace.jpg"
+                  image: "/images/furnace.jpg",
+                  href: "/hvac-maintenance"
                 },
                 {
                   title: "Air Quality",
                   desc: "Combat Fort Wayne allergens and pollutants with high-grade filtration and humidity control systems.",
                   icon: "💨",
-                  image: "/images/air-quality.jpg"
+                  image: "/images/air-quality.jpg",
+                  href: "/hvac-maintenance"
                 }
               ].map((s) => (
                 <div key={s.title} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">
@@ -209,7 +211,7 @@ export default function Home() {
                     <div className="text-4xl mb-4">{s.icon}</div>
                     <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tight">{s.title}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed mb-6 font-medium">{s.desc}</p>
-                    <a href="#contact" className="text-[10px] font-black uppercase tracking-widest text-red-600 hover:text-slate-900 transition-colors">
+                    <a href={s.href} className="text-[10px] font-black uppercase tracking-widest text-red-600 hover:text-slate-900 transition-colors">
                       Request Quote →
                     </a>
                   </div>
