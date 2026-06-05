@@ -204,6 +204,15 @@ export default function HVACCostGuide() {
               </table>
             </div>
 
+            {/* Inline Cost Estimator CTA */}
+            <div className="bg-slate-50 rounded-2xl border border-gray-200 p-8 text-center my-8">
+              <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tight">Get a Personalized Price for Your Home</h3>
+              <p className="text-slate-600 mb-6">These are general ranges. Use our interactive Cost Estimator to get a Fort Wayne-specific price based on your exact home size, system type, and efficiency preference. No email required.</p>
+              <Link href="/ac-furnace-cost-estimator-fort-wayne" className="inline-block bg-red-600 text-white font-black uppercase tracking-wider px-8 py-4 rounded-full shadow-xl hover:bg-slate-900 transition-all">
+                Try the Cost Estimator →
+              </Link>
+            </div>
+
             <h2 className="text-3xl font-black text-slate-900 tracking-tight uppercase mt-12">What Drives HVAC Costs Up in Fort Wayne?</h2>
             <p>
               Not all $8,000 furnace replacements are equal. Here are the Fort Wayne-specific factors that push pricing

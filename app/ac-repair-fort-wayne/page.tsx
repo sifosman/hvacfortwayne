@@ -30,11 +30,51 @@ const serviceSchema = {
   description: "Same-day AC repair service across Fort Wayne and Allen County. Compressors, leaks, coils, electrical diagnostics.",
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is my AC running but not cooling my Fort Wayne home?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Fort Wayne, the most common causes are frozen evaporator coils (from restricted airflow or low refrigerant), clogged condensate drains, or a failed capacitor. Heavy summer humidity makes all of these worse. If your AC is blowing warm air, turn it off and check your filter first. If the filter is clean and the problem persists, you likely need a technician to test refrigerant levels and electrical components."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does AC repair cost in Fort Wayne?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common AC repairs in Fort Wayne range from $150-$350 for capacitors and contactors, $120-$250 for clogged drain lines, $280-$650 for blower motor issues, and $1,200-$1,800 for refrigerant leaks. Compressor replacement costs $2,500-$3,500. We provide upfront written quotes before any work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I replace just the outside AC unit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Technically yes, but it is usually not recommended. The outdoor condenser and indoor evaporator coil are designed as a matched system. Replacing only the outdoor unit with a newer high-SEER model while keeping an old indoor coil reduces efficiency by 20-30% and may void the manufacturer's warranty. In most cases, replacing both together is the smarter long-term investment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you handle an AC repair in Fort Wayne?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "During business hours, our average dispatch-to-arrival time in Allen County is 45-90 minutes. Emergency after-hours service is available with premium rates. We stock common parts for Carrier, Trane, Lennox, Goodman, and Rheem systems, so most same-day repairs are completed within 2 hours of arrival."
+      }
+    }
+  ]
+};
+
 export default function ACRepairFortWayne() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <main className="bg-white">
         <section className="bg-slate-50 py-16 md:py-24 border-b border-gray-200">
@@ -184,6 +224,39 @@ export default function ACRepairFortWayne() {
               Response time varies by distance and call volume, but our average dispatch-to-arrival time in Allen County
               is <strong>45-90 minutes</strong> for emergency calls during business hours.
             </p>
+          </div>
+
+          {/* Tool CTAs */}
+          <div className="mt-12 bg-slate-50 rounded-2xl border border-gray-200 p-8 text-center">
+            <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tight">Thinking About Replacing Instead of Repairing?</h3>
+            <p className="text-slate-600 mb-6">Get an instant Fort Wayne-specific price range for AC replacement. No email required.</p>
+            <Link href="/ac-furnace-cost-estimator-fort-wayne" className="inline-block bg-red-600 text-white font-black uppercase tracking-wider px-8 py-4 rounded-full shadow-xl hover:bg-slate-900 transition-all">
+              Try the Cost Estimator →
+            </Link>
+          </div>
+
+          <div className="mt-8 bg-red-50 rounded-2xl border border-red-100 p-8 text-center">
+            <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tight">AC Blowing Warm Air or Making Noise?</h3>
+            <p className="text-slate-600 mb-6">Pick your symptom and get the likely cause, typical repair cost, and whether you need same-day service.</p>
+            <Link href="/hvac-symptom-checker" className="inline-block bg-red-600 text-white font-black uppercase tracking-wider px-8 py-4 rounded-full shadow-xl hover:bg-slate-900 transition-all">
+              Use the Symptom Checker →
+            </Link>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="mt-16">
+            <h2 className="text-3xl font-black text-slate-900 tracking-tight uppercase mb-8 text-center">AC Repair FAQ</h2>
+            <div className="space-y-4">
+              {faqSchema.mainEntity.map((q) => (
+                <details key={q.name} className="bg-white border border-gray-200 rounded-xl p-5 group cursor-pointer">
+                  <summary className="font-semibold text-slate-900 list-none flex justify-between items-center">
+                    {q.name}
+                    <span className="text-red-600 ml-2 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="mt-3 text-slate-600 text-sm leading-relaxed">{q.acceptedAnswer.text}</p>
+                </details>
+              ))}
+            </div>
           </div>
 
           <div className="mt-16 p-8 bg-slate-50 rounded-2xl border border-gray-200">

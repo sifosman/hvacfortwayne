@@ -10,6 +10,31 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    title: "Fort Wayne Spring HVAC Checklist 2026",
+    slug: "spring-hvac-checklist-fort-wayne",
+    excerpt: "Don't wait for the first 90°F day. Follow this Fort Wayne-specific spring HVAC checklist to prevent summer breakdowns and lower your I&M bill.",
+  },
+  {
+    title: "Why Fort Wayne AC Units Fail in July Humidity",
+    slug: "ac-fail-july-humidity-fort-wayne",
+    excerpt: "Fort Wayne's July humidity destroys AC compressors, freezes coils, and clogs drains. Learn the 4 failure patterns we see every summer.",
+  },
+  {
+    title: "Furnace Tune-Up Before First Freeze: Allen County Fall Timeline",
+    slug: "furnace-tune-up-before-freeze-fort-wayne",
+    excerpt: "When should Fort Wayne homeowners schedule fall furnace maintenance? Get the Allen County timeline and pre-winter checklist.",
+  },
+  {
+    title: "Should I Cover My AC Unit for Fort Wayne Winter?",
+    slug: "cover-ac-unit-winter-fort-wayne",
+    excerpt: "Is covering your outdoor AC unit a good idea in Fort Wayne? We break down the pros, cons, and what Indiana's snow means for your condenser.",
+  },
+  {
+    title: "Emergency Furnace Repair on Christmas: What It Costs in Fort Wayne",
+    slug: "emergency-furnace-repair-christmas-fort-wayne",
+    excerpt: "Furnace died on Christmas Day? Here is what emergency HVAC repair costs on holidays, what you can check yourself, and how to stay safe.",
+  },
+  {
     title: "Why Fort Wayne's Lake-Effect Humidity Kills AC Compressors",
     slug: "lake-effect-humidity-ac-compressors",
     excerpt: "Fort Wayne's lake-effect humidity is the hidden killer of AC compressors. Learn why Allen County's muggy summers cause more failures than heat alone.",

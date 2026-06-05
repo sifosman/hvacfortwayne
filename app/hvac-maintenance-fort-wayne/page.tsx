@@ -30,11 +30,51 @@ const serviceSchema = {
   description: "Seasonal HVAC tune-ups for Fort Wayne homes. Spring AC and fall furnace maintenance with Fort Wayne-specific checks.",
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How often should I change my HVAC filter in Fort Wayne?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In Fort Wayne, change your filter every 30-60 days during peak heating and cooling seasons. Allen County's agricultural dust (especially during planting and harvest) clogs filters faster than urban areas. If you have pets, allergies, or live near rural areas like Grabill or Leo-Cedarville, check monthly. A clogged filter is the #1 preventable cause of AC and furnace failure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does a professional HVAC tune-up include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our spring AC tune-up includes refrigerant pressure testing, condenser coil cleaning, evaporator coil inspection, condensate drain flush, electrical component testing, blower motor inspection, thermostat calibration, and ductwork visual inspection. Our fall furnace tune-up includes heat exchanger inspection with borescope, igniter and flame sensor testing, gas pressure and combustion analysis, safety switch verification, venting inspection, and carbon monoxide testing. Each takes 60-90 minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When should I schedule AC and furnace maintenance in Fort Wayne?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Schedule AC maintenance in April, before the first 80°F day. Schedule furnace maintenance in September-October, before the first freeze (typically mid-October in Fort Wayne). By mid-May and mid-October, appointment availability shrinks and emergency rates kick in for breakdowns. Priority scheduling for maintenance agreement holders means you get the first available slots."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does HVAC maintenance cost in Fort Wayne?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A single system tune-up (AC or furnace) costs $89-$129. A full system tune-up (both AC and furnace) costs $149-$229. Our Annual Maintenance Agreement at $199-$279/year includes two tune-ups, a 15% repair discount, and priority scheduling. The agreement pays for itself with just one repair discount."
+      }
+    }
+  ]
+};
+
 export default function HVACMaintenanceFortWayne() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <main className="bg-white">
         <section className="bg-slate-50 py-16 md:py-24 border-b border-gray-200">
@@ -163,6 +203,39 @@ export default function HVACMaintenanceFortWayne() {
               The Annual Maintenance Agreement pays for itself with just one repair discount. More importantly, priority
               scheduling means you get the first available appointment slots in April and September — before the rush.
             </p>
+          </div>
+
+          {/* Tool CTAs */}
+          <div className="mt-12 bg-slate-50 rounded-2xl border border-gray-200 p-8 text-center">
+            <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tight">Wondering If Your System Is Worth Maintaining?</h3>
+            <p className="text-slate-600 mb-6">Get an honest repair-or-replace recommendation based on your system's age and condition. No email required.</p>
+            <Link href="/repair-or-replace-tool" className="inline-block bg-red-600 text-white font-black uppercase tracking-wider px-8 py-4 rounded-full shadow-xl hover:bg-slate-900 transition-all">
+              Try the Decision Tool →
+            </Link>
+          </div>
+
+          <div className="mt-8 bg-red-50 rounded-2xl border border-red-100 p-8 text-center">
+            <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tight">Something Not Working Right?</h3>
+            <p className="text-slate-600 mb-6">Pick your symptom and get the likely cause, typical repair cost, and whether you need same-day service.</p>
+            <Link href="/hvac-symptom-checker" className="inline-block bg-red-600 text-white font-black uppercase tracking-wider px-8 py-4 rounded-full shadow-xl hover:bg-slate-900 transition-all">
+              Use the Symptom Checker →
+            </Link>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="mt-16">
+            <h2 className="text-3xl font-black text-slate-900 tracking-tight uppercase mb-8 text-center">HVAC Maintenance FAQ</h2>
+            <div className="space-y-4">
+              {faqSchema.mainEntity.map((q) => (
+                <details key={q.name} className="bg-white border border-gray-200 rounded-xl p-5 group cursor-pointer">
+                  <summary className="font-semibold text-slate-900 list-none flex justify-between items-center">
+                    {q.name}
+                    <span className="text-red-600 ml-2 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="mt-3 text-slate-600 text-sm leading-relaxed">{q.acceptedAnswer.text}</p>
+                </details>
+              ))}
+            </div>
           </div>
 
           <div className="mt-16 p-8 bg-slate-50 rounded-2xl border border-gray-200">

@@ -186,21 +186,21 @@ export default function Home() {
                   desc: "When the humidity becomes 'thick and sticky,' your AC is your only refuge. We fix compressors, leaks, and electrical issues.",
                   icon: "❄️",
                   image: "/images/ac.png",
-                  href: "/ac-repair"
+                  href: "/ac-repair-fort-wayne"
                 },
                 {
                   title: "AC Maintenance",
                   desc: "Don't let the Fort Wayne humidity catch you off guard. Our multi-point inspections ensure your AC runs efficiently all summer long.",
                   icon: "⚡",
                   image: "/images/furnace.jpg",
-                  href: "/hvac-maintenance"
+                  href: "/hvac-maintenance-fort-wayne"
                 },
                 {
                   title: "Air Quality",
                   desc: "Combat Fort Wayne allergens and pollutants with high-grade filtration and humidity control systems.",
                   icon: "💨",
                   image: "/images/air-quality.jpg",
-                  href: "/hvac-maintenance"
+                  href: "/indoor-air-quality-fort-wayne"
                 }
               ].map((s) => (
                 <div key={s.title} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden group">

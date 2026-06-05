@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const PHONE = "(260) 786-9284";
-const PHONE_HREF = "tel:+126****9284";
+const PHONE_HREF = "tel:+12607869284";
 
 const aboutSchema = {
   "@context": "https://schema.org",

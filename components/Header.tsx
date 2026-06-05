@@ -73,6 +73,10 @@ export default function Header() {
                 <Link href="/hvac-cost-guide-fort-wayne" className="block px-4 py-2 hover:bg-gray-50 hover:text-red-600">HVAC Cost Guide 2026</Link>
                 <Link href="/heat-pumps-fort-wayne" className="block px-4 py-2 hover:bg-gray-50 hover:text-red-600">Heat Pumps in Fort Wayne</Link>
                 <Link href="/allen-county-energy-savings" className="block px-4 py-2 hover:bg-gray-50 hover:text-red-600">Energy Savings & Rebates</Link>
+                <div className="border-t border-gray-100 my-1" />
+                <Link href="/ac-furnace-cost-estimator-fort-wayne" className="block px-4 py-2 hover:bg-gray-50 hover:text-red-600 font-semibold">💰 Cost Estimator</Link>
+                <Link href="/repair-or-replace-tool" className="block px-4 py-2 hover:bg-gray-50 hover:text-red-600 font-semibold">🔧 Repair or Replace?</Link>
+                <Link href="/hvac-symptom-checker" className="block px-4 py-2 hover:bg-gray-50 hover:text-red-600 font-semibold">🩺 Symptom Checker</Link>
               </div>
             )}
           </div>
@@ -149,6 +153,9 @@ export default function Header() {
           <Link href="/hvac-cost-guide-fort-wayne" className="block text-sm text-slate-600" onClick={() => setMobileOpen(false)}>HVAC Cost Guide 2026</Link>
           <Link href="/heat-pumps-fort-wayne" className="block text-sm text-slate-600" onClick={() => setMobileOpen(false)}>Heat Pumps in Fort Wayne</Link>
           <Link href="/allen-county-energy-savings" className="block text-sm text-slate-600" onClick={() => setMobileOpen(false)}>Energy Savings & Rebates</Link>
+          <Link href="/ac-furnace-cost-estimator-fort-wayne" className="block text-sm text-slate-600 font-semibold" onClick={() => setMobileOpen(false)}>💰 Cost Estimator</Link>
+          <Link href="/repair-or-replace-tool" className="block text-sm text-slate-600 font-semibold" onClick={() => setMobileOpen(false)}>🔧 Repair or Replace?</Link>
+          <Link href="/hvac-symptom-checker" className="block text-sm text-slate-600 font-semibold" onClick={() => setMobileOpen(false)}>🩺 Symptom Checker</Link>
           <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mt-2">Areas We Serve</p>
           {["Aboite","Waynedale","Pine Valley","Forest Park","Arlington Park","New Haven","Huntertown","Leo-Cedarville","Grabill","Hoagland","Monroeville","Woodburn"].map((area) => (
             <Link key={area} href={`/${area.toLowerCase().replace(/\s+/g, "-")}`} className="block text-sm text-slate-600" onClick={() => setMobileOpen(false)}>

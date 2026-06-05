@@ -36,6 +36,9 @@ export default function Footer() {
             <Link href="/hvac-cost-guide-fort-wayne" className="block hover:text-white transition-colors">HVAC Cost Guide 2026</Link>
             <Link href="/heat-pumps-fort-wayne" className="block hover:text-white transition-colors">Heat Pumps in Fort Wayne</Link>
             <Link href="/allen-county-energy-savings" className="block hover:text-white transition-colors">Energy Savings & Rebates</Link>
+            <Link href="/ac-furnace-cost-estimator-fort-wayne" className="block hover:text-white transition-colors font-semibold">💰 Cost Estimator</Link>
+            <Link href="/repair-or-replace-tool" className="block hover:text-white transition-colors font-semibold">🔧 Repair or Replace?</Link>
+            <Link href="/hvac-symptom-checker" className="block hover:text-white transition-colors font-semibold">🩺 Symptom Checker</Link>
           </div>
         </div>
 

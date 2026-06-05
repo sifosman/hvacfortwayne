@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 const PHONE = "(260) 786-9284";
-const PHONE_HREF = "tel:+126****9284";
+const PHONE_HREF = "tel:+12607869284";
 
 const neighborhoods = [
   "Aboite", "Waynedale", "Pine Valley", "Arlington Park",
@@ -142,14 +142,6 @@ export default function Contact() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
-
-      {/* ── META / HEAD ── */}
-      <head>
-        <title>Contact Fort Wayne HVAC Repair | Same-Day Service | HVAC Repair</title>
-        <meta name="description" content="Contact Fort Wayne HVAC Repair for fast, professional HVAC service across Allen County. Call (260) 786-9284 for same-day AC repair, furnace repair, and maintenance." />
-        <meta name="keywords" content="contact Fort Wayne HVAC repair, HVAC Fort Wayne phone number, AC repair Fort Wayne contact, furnace repair Fort Wayne, Allen County HVAC service" />
-        <link rel="canonical" href="https://hvacrepairfortwayne.com/contact" />
-      </head>
 
       {/* ── NAV ── */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">

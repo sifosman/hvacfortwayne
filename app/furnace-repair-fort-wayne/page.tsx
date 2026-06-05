@@ -30,11 +30,51 @@ const serviceSchema = {
   description: "Emergency furnace repair across Fort Wayne and Allen County. Gas and electric furnace diagnostics and repair.",
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is it normal for my furnace to smell like burning the first time I turn it on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A brief burning dust smell for the first 10-15 minutes is normal — it is dust burning off the heat exchanger after months of sitting idle. However, if the smell persists beyond 30 minutes, smells like rotten eggs (gas leak), or you see smoke, turn off the furnace immediately and call a technician. In Fort Wayne, where furnaces sit idle from April to October, the first-use dust burn is very common."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does furnace repair cost in Fort Wayne?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common furnace repairs in Fort Wayne range from $150-$250 for flame sensor cleaning/replacement, $180-$350 for igniter replacement, $280-$650 for blower motor issues, and $450-$900 for blower motor replacement. Heat exchanger replacement costs $1,500-$3,500 but usually triggers full furnace replacement. We provide upfront written quotes before any work begins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I repair or replace my 15-year-old furnace?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At 15 years, a furnace is at a decision point. The rule of thumb: if the repair costs more than 40% of a new system, replace. But in Fort Wayne's climate, also consider energy bills — a new 96% AFUE furnace can cut gas usage by 20-30% versus an 80% unit. If your furnace has needed repairs in the last 2 years or your bills have climbed 20%+, replacement is usually the smarter investment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I check before calling for furnace repair?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Check the thermostat (set to Heat, temperature above room temp, batteries not dead), the furnace power switch (looks like a light switch near the unit), the breaker panel, and the air filter. A severely clogged filter can trip the high-limit switch. Also check that outdoor vents are not blocked by snow or debris — common in Fort Wayne winters. If all checks pass and the furnace still will not start, call a professional."
+      }
+    }
+  ]
+};
+
 export default function FurnaceRepairFortWayne() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <main className="bg-white">
         <section className="bg-slate-50 py-16 md:py-24 border-b border-gray-200">
@@ -171,6 +211,39 @@ export default function FurnaceRepairFortWayne() {
                 replacement trigger. Do not let anyone talk you into patching it.
               </li>
             </ul>
+          </div>
+
+          {/* Tool CTAs */}
+          <div className="mt-12 bg-slate-50 rounded-2xl border border-gray-200 p-8 text-center">
+            <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tight">Not Sure If You Should Repair or Replace?</h3>
+            <p className="text-slate-600 mb-6">Get an honest recommendation based on your furnace's age, repair history, and energy costs. No email required.</p>
+            <Link href="/repair-or-replace-tool" className="inline-block bg-red-600 text-white font-black uppercase tracking-wider px-8 py-4 rounded-full shadow-xl hover:bg-slate-900 transition-all">
+              Try the Decision Tool →
+            </Link>
+          </div>
+
+          <div className="mt-8 bg-red-50 rounded-2xl border border-red-100 p-8 text-center">
+            <h3 className="text-xl font-bold text-slate-900 mb-3 uppercase tracking-tight">Furnace Blowing Cold Air or Making Noise?</h3>
+            <p className="text-slate-600 mb-6">Pick your symptom and get the likely cause, typical repair cost, and whether it is safe to wait.</p>
+            <Link href="/hvac-symptom-checker" className="inline-block bg-red-600 text-white font-black uppercase tracking-wider px-8 py-4 rounded-full shadow-xl hover:bg-slate-900 transition-all">
+              Use the Symptom Checker →
+            </Link>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="mt-16">
+            <h2 className="text-3xl font-black text-slate-900 tracking-tight uppercase mb-8 text-center">Furnace Repair FAQ</h2>
+            <div className="space-y-4">
+              {faqSchema.mainEntity.map((q) => (
+                <details key={q.name} className="bg-white border border-gray-200 rounded-xl p-5 group cursor-pointer">
+                  <summary className="font-semibold text-slate-900 list-none flex justify-between items-center">
+                    {q.name}
+                    <span className="text-red-600 ml-2 group-open:rotate-180 transition-transform">▼</span>
+                  </summary>
+                  <p className="mt-3 text-slate-600 text-sm leading-relaxed">{q.acceptedAnswer.text}</p>
+                </details>
+              ))}
+            </div>
           </div>
 
           <div className="mt-16 p-8 bg-slate-50 rounded-2xl border border-gray-200">

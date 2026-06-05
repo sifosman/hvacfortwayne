@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   title: "HVAC Repair Fort Wayne | Expert Emergency AC & Furnace Service",
   description:
     "Fast, reliable HVAC repair in Fort Wayne, IN. Serving Aboite, Waynedale, Pine Valley, Forest Park, New Haven, Huntertown, and all of Allen County. 24/7 emergency air conditioning and heating services. Call (260) 786-9284 for a free quote.",
-  keywords:
-    "hvac repair fort wayne, ac repair fort wayne in, furnace repair fort wayne, heating and cooling fort wayne, hvac service fort wayne, emergency ac repair fort wayne, heat pump installation fort wayne, indoor air quality fort wayne",
   alternates: { canonical: "https://hvacrepairfortwayne.com/" },
   openGraph: {
     title: "HVAC Repair Fort Wayne | Expert Emergency AC & Furnace Service",
@@ -23,7 +21,7 @@ export const metadata: Metadata = {
     images: [{ url: "https://hvacrepairfortwayne.com/images/tech.jpg", width: 1200, height: 800 }],
   },
   other: {
-    "google-site-verification": "YOUR_VERIFICATION_CODE", // TODO: Replace with real GSC code
+    "google-site-verification": "YOUR_VERIFICATION_CODE",
   },
 };
 
