@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const PHONE = "(260) 786-9284";
 const PHONE_HREF = "tel:+12607869284";
@@ -218,6 +219,21 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ── CALCULATOR CTA ── */}
+        <section className="py-12 px-4 bg-white border-b border-gray-200">
+          <div className="max-w-4xl mx-auto bg-slate-50 rounded-2xl border border-gray-200 p-8 md:p-10 flex flex-col md:flex-row items-center gap-6">
+            <div className="flex-1">
+              <h3 className="text-xl font-bold text-slate-900 uppercase tracking-tight">Want an Instant Cost Estimate?</h3>
+              <p className="text-slate-600 mt-2 text-sm leading-relaxed">
+                Not sure what your repair or replacement will cost? Try our Fort Wayne HVAC Cost Calculator and get a local price range in 30 seconds — no email required.
+              </p>
+            </div>
+            <Link href="/ac-furnace-cost-estimator-fort-wayne" className="shrink-0 bg-red-600 text-white font-black uppercase tracking-wider px-8 py-4 rounded-full shadow-xl hover:bg-slate-900 transition-all text-sm whitespace-nowrap">
+              Cost Calculator →
+            </Link>
           </div>
         </section>
 

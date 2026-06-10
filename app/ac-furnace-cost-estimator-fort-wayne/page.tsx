@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Estimator from "./Estimator";
 
 export const metadata: Metadata = {
-  title: "HVAC Replacement Cost Estimator | Fort Wayne & Allen County",
+  title: "HVAC Cost Calculator Fort Wayne | AC & Furnace Repair & Replacement Estimates",
   description:
-    "Get an instant, local price range for AC and furnace replacement in Fort Wayne, IN. Based on real Allen County HVAC jobs — no email required.",
+    "Get an instant HVAC cost estimate for Fort Wayne. Calculate AC repair, furnace replacement, or mini-split installation costs based on real Allen County pricing. No email required.",
   keywords:
-    "hvac replacement cost fort wayne, furnace replacement cost allen county, ac installation cost fort wayne, hvac estimator indiana",
+    "hvac cost calculator, hvac repair cost calculator, ac cost calculator, furnace cost calculator, hvac replacement cost calculator, hvac cost estimator, hvac replacement cost fort wayne, ac installation cost fort wayne",
   alternates: { canonical: "https://hvacrepairfortwayne.com/ac-furnace-cost-estimator-fort-wayne" },
 };
 

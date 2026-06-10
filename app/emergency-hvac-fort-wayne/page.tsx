@@ -259,6 +259,7 @@ export default function EmergencyHVACFortWayne() {
               <Link href="/furnace-repair-fort-wayne/" className="text-red-600 hover:underline font-semibold">Furnace Repair</Link>
               <Link href="/hvac-maintenance-fort-wayne/" className="text-red-600 hover:underline font-semibold">HVAC Maintenance</Link>
               <Link href="/ac-installation-fort-wayne/" className="text-red-600 hover:underline font-semibold">AC Installation</Link>
+              <Link href="/ac-repair-cost-fort-wayne/" className="text-red-600 hover:underline font-semibold">AC Repair Costs Fort Wayne</Link>
             </div>
           </div>
         </article>

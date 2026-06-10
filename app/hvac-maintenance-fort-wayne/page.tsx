@@ -245,6 +245,7 @@ export default function HVACMaintenanceFortWayne() {
               <Link href="/furnace-repair-fort-wayne/" className="text-red-600 hover:underline font-semibold">Furnace Repair</Link>
               <Link href="/emergency-hvac-fort-wayne/" className="text-red-600 hover:underline font-semibold">Emergency HVAC</Link>
               <Link href="/indoor-air-quality-fort-wayne/" className="text-red-600 hover:underline font-semibold">Indoor Air Quality</Link>
+              <Link href="/hvac-maintenance-cost-fort-wayne/" className="text-red-600 hover:underline font-semibold">HVAC Maintenance Costs</Link>
             </div>
           </div>
         </article>
